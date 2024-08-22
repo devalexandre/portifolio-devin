@@ -29,16 +29,36 @@ function App() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">Project 1</h3>
-              <p>Description of Project 1 from GitHub.</p>
-              <a href="#" className="text-blue-600 hover:underline">View on GitHub</a>
+              <h3 className="text-xl font-semibold mb-2">microservice-style-guide</h3>
+              <p>Guide on microservices best practices.</p>
+              <a href="https://github.com/devalexandre/microservice-style-guide" className="text-blue-600 hover:underline">View on GitHub</a>
             </div>
             <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">Project 2</h3>
-              <p>Description of Project 2 from GitHub.</p>
-              <a href="#" className="text-blue-600 hover:underline">View on GitHub</a>
+              <h3 className="text-xl font-semibold mb-2">gofn</h3>
+              <p>Library for using Golang functional programming.</p>
+              <a href="https://github.com/devalexandre/gofn" className="text-blue-600 hover:underline">View on GitHub</a>
+            </div>
+            <div className="bg-white p-4 rounded shadow">
+              <h3 className="text-xl font-semibold mb-2">pipe</h3>
+              <p>Package for creating Unix-like pipelines in Go.</p>
+              <a href="https://github.com/devalexandre/pipe" className="text-blue-600 hover:underline">View on GitHub</a>
+            </div>
+            <div className="bg-white p-4 rounded shadow">
+              <h3 className="text-xl font-semibold mb-2">mylangchaingo</h3>
+              <p>Resources for LangChainGo.</p>
+              <a href="https://github.com/devalexandre/mylangchaingo" className="text-blue-600 hover:underline">View on GitHub</a>
+            </div>
+            <div className="bg-white p-4 rounded shadow">
+              <h3 className="text-xl font-semibold mb-2">langsmithgo</h3>
+              <p>Client library for LangSmith API in Go.</p>
+              <a href="https://github.com/devalexandre/langsmithgo" className="text-blue-600 hover:underline">View on GitHub</a>
+            </div>
+            <div className="bg-white p-4 rounded shadow">
+              <h3 className="text-xl font-semibold mb-2">langflowgo</h3>
+              <p>Project related to LangFlow in Go.</p>
+              <a href="https://github.com/devalexandre/langflowgo" className="text-blue-600 hover:underline">View on GitHub</a>
             </div>
           </div>
         </section>
