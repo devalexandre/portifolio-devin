@@ -84,61 +84,61 @@ function App() {
     {
       id: '1',
       title: 'Building a ChatGPT Replica with Fyne in Go',
-      thumbnail: '/images/chatgpt-replica-1.png',
+      thumbnail: 'images/chatgpt-replica-1.png',
       url: 'https://devevangelista.medium.com/building-a-chatgpt-replica-with-fyne-in-go-5d35fea1c4aa'
     },
     {
       id: '2',
       title: 'Using Encore with Ksql and Cockroachdb',
-      thumbnail: '/images/encore-ksql-cockroachdb-1.png',
+      thumbnail: 'images/encore-ksql-cockroachdb-1.png',
       url: 'https://devevangelista.medium.com/using-encore-with-ksql-and-cockroachdb-3db35743c0b6'
     },
     {
       id: '3',
       title: 'NLP with Golang and Cybertron',
-      thumbnail: '/images/nlp-golang-cybertron-1.png',
+      thumbnail: 'images/nlp-golang-cybertron-1.png',
       url: 'https://devevangelista.medium.com/nlp-with-golang-and-cybertron-5dd9560b84db'
     },
     {
       id: '4',
       title: 'Using Gorilla/http for request',
-      thumbnail: '/images/gorilla-http-request-1.png',
+      thumbnail: 'images/gorilla-http-request-1.png',
       url: 'https://devevangelista.medium.com/using-gorilla-http-for-request-e590c5dc7083'
     },
     {
       id: '5',
       title: 'Exploring the Universe of LangchainGo with Hugging Face',
-      thumbnail: '/images/langchaingo-huggingface-1.png',
+      thumbnail: 'images/langchaingo-huggingface-1.png',
       url: 'https://devevangelista.medium.com/exploring-the-universe-of-langchaingo-with-hugging-face-a-go-adventure-448ad7bdff84'
     },
     {
       id: '6',
       title: 'Introducing the Spectacular New Feature of Pipe Library v0.0.2-beta',
-      thumbnail: '/images/pipe-library-feature-1.png',
+      thumbnail: 'images/pipe-library-feature-1.png',
       url: 'https://devevangelista.medium.com/introducing-the-spectacular-new-feature-of-pipe-library-v0-0-2-beta-multiple-return-values-8be79e292f3f'
     },
     {
       id: '7',
       title: 'Functional Programming in Go: An Adventure with gofn and pipe',
-      thumbnail: '/images/functional-go-gofn-pipe-1.png',
+      thumbnail: 'images/functional-go-gofn-pipe-1.png',
       url: 'https://devevangelista.medium.com/functional-programming-in-go-an-adventure-with-gofn-and-pipe-de42b3a76449'
     },
     {
       id: '8',
       title: 'Conjuring Code: Unleash the Magic of Google Gemma with LangChainGo',
-      thumbnail: '/images/google-gemma-langchaingo-1.png',
+      thumbnail: 'images/google-gemma-langchaingo-1.png',
       url: 'https://devevangelista.medium.com/conjuring-code-unleash-the-magic-of-google-gemma-with-langchaingo-3b3a042ef2f7'
     },
     {
       id: '9',
       title: 'Introducing Pipe: Unix-like Pipelines for Go',
-      thumbnail: '/images/pipe-unix-pipelines-go-1.png',
+      thumbnail: 'images/pipe-unix-pipelines-go-1.png',
       url: 'https://devevangelista.medium.com/introducing-pipe-unix-like-pipelines-for-go-8108b2fa68f2'
     },
     {
       id: '10',
       title: 'How the Circuit Breaker Pattern Can Save Your App from Catastrophic Failures',
-      thumbnail: '/images/circuit-breaker-pattern-1.png',
+      thumbnail: 'images/circuit-breaker-pattern-1.png',
       url: 'https://devevangelista.medium.com/how-the-circuit-breaker-pattern-can-save-your-app-from-catastrophic-failures-️-7a305d2dc79f'
     }
   ];
@@ -227,7 +227,7 @@ function App() {
                   className="w-full h-48 object-cover mb-4 rounded"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = 'https://via.placeholder.com/400x225?text=Image+Not+Available';
+                    e.target.src = process.env.PUBLIC_URL + '/images/placeholder-image.png';
                   }}
                 />
                 <h3 className="text-xl font-semibold mb-3 text-dracula-yellow">{article.title}</h3>
