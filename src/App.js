@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import pixelArtImage from './pixel-art-banner.png'; // Assuming you have this image in your src folder
+import bannerImage from './banner-image.png'; // Updated to use the correct banner image
 
 // Custom hook for fade-in effect on scroll
 const useFadeInOnScroll = (threshold = 0.1) => {
@@ -38,66 +38,120 @@ function App() {
   const youtubeVideos = [
     {
       id: '1',
-      title: 'Microservices com Go - Parte 1',
-      thumbnail: 'https://img.youtube.com/vi/VW7SFTE9EpE/0.jpg',
-      url: 'https://www.youtube.com/watch?v=VW7SFTE9EpE'
+      title: 'Enhancing PDF Analysis with RAG and LangChainGO',
+      thumbnail: 'https://img.youtube.com/vi/MPJpAx60p5w/0.jpg',
+      url: 'https://www.youtube.com/watch?v=MPJpAx60p5w'
     },
     {
       id: '2',
-      title: 'Microservices com Go - Parte 2',
-      thumbnail: 'https://img.youtube.com/vi/yl4SYbOI9Lc/0.jpg',
-      url: 'https://www.youtube.com/watch?v=yl4SYbOI9Lc'
+      title: 'Nats UI with Fyne - Golang',
+      thumbnail: 'https://img.youtube.com/vi/R36nSTVMLA4/0.jpg',
+      url: 'https://www.youtube.com/watch?v=R36nSTVMLA4'
     },
     {
       id: '3',
-      title: 'Microservices com Go - Parte 3',
-      thumbnail: 'https://img.youtube.com/vi/yl4SYbOI9Lc/0.jpg',
-      url: 'https://www.youtube.com/watch?v=yl4SYbOI9Lc'
+      title: 'ZED IDE linux e Mac',
+      thumbnail: 'https://img.youtube.com/vi/PzwRghvW7Ys/0.jpg',
+      url: 'https://www.youtube.com/watch?v=PzwRghvW7Ys'
     },
     {
       id: '4',
-      title: 'Golang para iniciantes',
-      thumbnail: 'https://img.youtube.com/vi/WiGU_ZB-u0w/0.jpg',
-      url: 'https://www.youtube.com/watch?v=WiGU_ZB-u0w'
+      title: 'How use Golang with Langflow',
+      thumbnail: 'https://img.youtube.com/vi/rnNqA4tDi-0/0.jpg',
+      url: 'https://www.youtube.com/watch?v=rnNqA4tDi-0'
     },
     {
       id: '5',
-      title: 'Criando uma API com Go',
-      thumbnail: 'https://img.youtube.com/vi/socM14c9Vfk/0.jpg',
-      url: 'https://www.youtube.com/watch?v=socM14c9Vfk'
+      title: 'Using Langflow with Qdrant Vector Store',
+      thumbnail: 'https://img.youtube.com/vi/blfWz8c2398/0.jpg',
+      url: 'https://www.youtube.com/watch?v=blfWz8c2398'
+    },
+    {
+      id: '6',
+      title: 'Criando sua Propria Assistente Com AI',
+      thumbnail: 'https://img.youtube.com/vi/DD3oOCrDDks/0.jpg',
+      url: 'https://www.youtube.com/watch?v=DD3oOCrDDks'
+    },
+    {
+      id: '7',
+      title: 'LingmoUI Um linux like Macos',
+      thumbnail: 'https://img.youtube.com/vi/9c9a0LqkGCI/0.jpg',
+      url: 'https://www.youtube.com/watch?v=9c9a0LqkGCI'
     }
   ];
 
   const mediumArticles = [
     {
       id: '1',
-      title: 'Microservices com Go: Parte 1',
+      title: 'Building a ChatGPT Replica with Fyne in Go',
       thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
-      url: 'https://devevangelista.medium.com/microservices-com-go-parte-1-a2f1e3e8a3f9'
+      url: 'https://devevangelista.medium.com/building-a-chatgpt-replica-with-fyne-in-go-5d35fea1c4aa'
     },
     {
       id: '2',
-      title: 'Microservices com Go: Parte 2',
+      title: 'Using Encore with Ksql and Cockroachdb',
       thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
-      url: 'https://devevangelista.medium.com/microservices-com-go-parte-2-3b5a5e9e9b9e'
+      url: 'https://devevangelista.medium.com/using-encore-with-ksql-and-cockroachdb-3db35743c0b6'
     },
     {
       id: '3',
-      title: 'Golang para iniciantes',
+      title: 'NLP with Golang and Cybertron',
       thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
-      url: 'https://devevangelista.medium.com/golang-para-iniciantes-b5f5e6f7d8f9'
+      url: 'https://devevangelista.medium.com/nlp-with-golang-and-cybertron-5dd9560b84db'
+    },
+    {
+      id: '4',
+      title: 'Using Gorilla/http for request',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/using-gorilla-http-for-request-e590c5dc7083'
+    },
+    {
+      id: '5',
+      title: 'Exploring the Universe of LangchainGo with Hugging Face',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/exploring-the-universe-of-langchaingo-with-hugging-face-a-go-adventure-448ad7bdff84'
+    },
+    {
+      id: '6',
+      title: 'Introducing the Spectacular New Feature of Pipe Library v0.0.2-beta',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/introducing-the-spectacular-new-feature-of-pipe-library-v0-0-2-beta-multiple-return-values-8be79e292f3f'
+    },
+    {
+      id: '7',
+      title: 'Functional Programming in Go: An Adventure with gofn and pipe',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/functional-programming-in-go-an-adventure-with-gofn-and-pipe-de42b3a76449'
+    },
+    {
+      id: '8',
+      title: 'Conjuring Code: Unleash the Magic of Google Gemma with LangChainGo',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/conjuring-code-unleash-the-magic-of-google-gemma-with-langchaingo-3b3a042ef2f7'
+    },
+    {
+      id: '9',
+      title: 'Introducing Pipe: Unix-like Pipelines for Go',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/introducing-pipe-unix-like-pipelines-for-go-8108b2fa68f2'
+    },
+    {
+      id: '10',
+      title: 'How the Circuit Breaker Pattern Can Save Your App from Catastrophic Failures',
+      thumbnail: 'https://miro.medium.com/max/1400/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      url: 'https://devevangelista.medium.com/how-the-circuit-breaker-pattern-can-save-your-app-from-catastrophic-failures-️-7a305d2dc79f'
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-blue-600 text-white p-4 relative overflow-hidden transition-all duration-500 ease-in-out hover:bg-blue-700">
-        <div className="absolute inset-0 opacity-20 transition-opacity duration-300 ease-in-out hover:opacity-30">
-          <img src={pixelArtImage} alt="Pixel Art Banner" className="w-full h-full object-cover" />
+      <header className="bg-blue-600 text-white p-8 relative overflow-hidden transition-all duration-500 ease-in-out hover:bg-blue-700">
+        <div className="absolute inset-0 opacity-30 transition-opacity duration-300 ease-in-out hover:opacity-40">
+          <img src={bannerImage} alt="Banner" className="w-full h-full object-cover object-center" />
         </div>
-        <div className="relative z-10">
-          <h1 className="text-3xl font-bold transition-transform duration-300 ease-in-out hover:scale-105">Alexandre Ferreira</h1>
-          <p className="text-xl transition-all duration-300 ease-in-out hover:text-blue-200">Full Stack Developer | Microservices Specialist</p>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold transition-transform duration-300 ease-in-out hover:scale-105">Alexandre Ferreira</h1>
+          <p className="text-2xl mt-2 transition-all duration-300 ease-in-out hover:text-blue-200">Full Stack Developer | Microservices Specialist</p>
         </div>
       </header>
 
