@@ -90,55 +90,55 @@ function App() {
     {
       id: '2',
       title: 'Using Encore with Ksql and Cockroachdb',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7Z3qLZKH5U5k-YexKXyCzA.png',
       url: 'https://devevangelista.medium.com/using-encore-with-ksql-and-cockroachdb-3db35743c0b6'
     },
     {
       id: '3',
       title: 'NLP with Golang and Cybertron',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
       url: 'https://devevangelista.medium.com/nlp-with-golang-and-cybertron-5dd9560b84db'
     },
     {
       id: '4',
       title: 'Using Gorilla/http for request',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QKbvGw8TT9rQWDtBXp1T3A.png',
       url: 'https://devevangelista.medium.com/using-gorilla-http-for-request-e590c5dc7083'
     },
     {
       id: '5',
       title: 'Exploring the Universe of LangchainGo with Hugging Face',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
       url: 'https://devevangelista.medium.com/exploring-the-universe-of-langchaingo-with-hugging-face-a-go-adventure-448ad7bdff84'
     },
     {
       id: '6',
       title: 'Introducing the Spectacular New Feature of Pipe Library v0.0.2-beta',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7Z3qLZKH5U5k-YexKXyCzA.png',
       url: 'https://devevangelista.medium.com/introducing-the-spectacular-new-feature-of-pipe-library-v0-0-2-beta-multiple-return-values-8be79e292f3f'
     },
     {
       id: '7',
       title: 'Functional Programming in Go: An Adventure with gofn and pipe',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QKbvGw8TT9rQWDtBXp1T3A.png',
       url: 'https://devevangelista.medium.com/functional-programming-in-go-an-adventure-with-gofn-and-pipe-de42b3a76449'
     },
     {
       id: '8',
       title: 'Conjuring Code: Unleash the Magic of Google Gemma with LangChainGo',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
       url: 'https://devevangelista.medium.com/conjuring-code-unleash-the-magic-of-google-gemma-with-langchaingo-3b3a042ef2f7'
     },
     {
       id: '9',
       title: 'Introducing Pipe: Unix-like Pipelines for Go',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7Z3qLZKH5U5k-YexKXyCzA.png',
       url: 'https://devevangelista.medium.com/introducing-pipe-unix-like-pipelines-for-go-8108b2fa68f2'
     },
     {
       id: '10',
       title: 'How the Circuit Breaker Pattern Can Save Your App from Catastrophic Failures',
-      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QKbvGw8TT9rQWDtBXp1T3A.png',
       url: 'https://devevangelista.medium.com/how-the-circuit-breaker-pattern-can-save-your-app-from-catastrophic-failures-️-7a305d2dc79f'
     }
   ];
@@ -221,7 +221,15 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {mediumArticles.map((article) => (
               <div key={article.id} className="bg-dracula-current p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
-                <img src={article.thumbnail} alt={article.title} className="w-full h-40 object-cover mb-2 rounded" />
+                <img
+                  src={article.thumbnail}
+                  alt={article.title}
+                  className="w-full h-40 object-cover mb-2 rounded"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/400x225?text=Image+Not+Available';
+                  }}
+                />
                 <h3 className="text-xl font-semibold mb-2 text-dracula-green">{article.title}</h3>
                 <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-dracula-purple hover:text-dracula-cyan transition duration-300 ease-in-out">
                   Read on Medium
