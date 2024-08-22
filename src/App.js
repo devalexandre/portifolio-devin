@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import pixelArtImage from './pixel-art-banner.png'; // Assuming you have this image in your src folder
 
+// Custom hook for fade-in effect on scroll
+const useFadeInOnScroll = (threshold = 0.1) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold }
+    );
+
+    const currentElement = ref.current;
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
+  }, [threshold]);
+
+  return [ref, isVisible];
+};
+
 function App() {
+  const [fadeInRef, isVisible] = useFadeInOnScroll();
+
   const youtubeVideos = [
     {
       id: '1',
@@ -58,29 +91,29 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-blue-600 text-white p-4 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <header className="bg-blue-600 text-white p-4 relative overflow-hidden transition-all duration-500 ease-in-out hover:bg-blue-700">
+        <div className="absolute inset-0 opacity-20 transition-opacity duration-300 ease-in-out hover:opacity-30">
           <img src={pixelArtImage} alt="Pixel Art Banner" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-10">
-          <h1 className="text-3xl font-bold">Alexandre Ferreira</h1>
-          <p className="text-xl">Full Stack Developer | Microservices Specialist</p>
+          <h1 className="text-3xl font-bold transition-transform duration-300 ease-in-out hover:scale-105">Alexandre Ferreira</h1>
+          <p className="text-xl transition-all duration-300 ease-in-out hover:text-blue-200">Full Stack Developer | Microservices Specialist</p>
         </div>
       </header>
 
       <main className="container mx-auto p-4">
-        <section className="mb-8">
+        <section className={`mb-8 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`} ref={fadeInRef}>
           <h2 className="text-2xl font-semibold mb-4">Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white p-4 rounded shadow">
+            <div className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-2">Microservices</h3>
               <p>Experienced in designing and implementing scalable microservices architectures.</p>
             </div>
-            <div className="bg-white p-4 rounded shadow">
+            <div className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-2">Node.js</h3>
               <p>Proficient in building server-side applications and APIs using Node.js and Express.</p>
             </div>
-            <div className="bg-white p-4 rounded shadow">
+            <div className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-2">Golang</h3>
               <p>Skilled in developing high-performance applications and microservices using Go.</p>
             </div>
@@ -90,36 +123,27 @@ function App() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">microservice-style-guide</h3>
-              <p>Guide on microservices best practices.</p>
-              <a href="https://github.com/devalexandre/microservice-style-guide" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">gofn</h3>
-              <p>Library for using Golang functional programming.</p>
-              <a href="https://github.com/devalexandre/gofn" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">pipe</h3>
-              <p>Package for creating Unix-like pipelines in Go.</p>
-              <a href="https://github.com/devalexandre/pipe" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">mylangchaingo</h3>
-              <p>Resources for LangChainGo.</p>
-              <a href="https://github.com/devalexandre/mylangchaingo" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">langsmithgo</h3>
-              <p>Client library for LangSmith API in Go.</p>
-              <a href="https://github.com/devalexandre/langsmithgo" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
-            <div className="bg-white p-4 rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">langflowgo</h3>
-              <p>Project related to LangFlow in Go.</p>
-              <a href="https://github.com/devalexandre/langflowgo" className="text-blue-600 hover:underline">View on GitHub</a>
-            </div>
+            {[
+              { title: "microservice-style-guide", description: "Guide on microservices best practices.", url: "https://github.com/devalexandre/microservice-style-guide" },
+              { title: "gofn", description: "Library for using Golang functional programming.", url: "https://github.com/devalexandre/gofn" },
+              { title: "pipe", description: "Package for creating Unix-like pipelines in Go.", url: "https://github.com/devalexandre/pipe" },
+              { title: "mylangchaingo", description: "Resources for LangChainGo.", url: "https://github.com/devalexandre/mylangchaingo" },
+              { title: "langsmithgo", description: "Client library for LangSmith API in Go.", url: "https://github.com/devalexandre/langsmithgo" },
+              { title: "langflowgo", description: "Project related to LangFlow in Go.", url: "https://github.com/devalexandre/langflowgo" }
+            ].map((project, index) => (
+              <div key={index} className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <p className="mb-4">{project.description}</p>
+                <a
+                  href={project.url}
+                  className="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub
+                </a>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -127,10 +151,10 @@ function App() {
           <h2 className="text-2xl font-semibold mb-4">YouTube Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {youtubeVideos.map((video) => (
-              <div key={video.id} className="bg-white p-4 rounded shadow">
+              <div key={video.id} className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
                 <img src={video.thumbnail} alt={video.title} className="w-full h-40 object-cover mb-2 rounded" />
                 <h3 className="text-xl font-semibold mb-2">{video.title}</h3>
-                <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
                   Watch on YouTube
                 </a>
               </div>
@@ -142,10 +166,10 @@ function App() {
           <h2 className="text-2xl font-semibold mb-4">Medium Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {mediumArticles.map((article) => (
-              <div key={article.id} className="bg-white p-4 rounded shadow">
+              <div key={article.id} className="bg-white p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
                 <img src={article.thumbnail} alt={article.title} className="w-full h-40 object-cover mb-2 rounded" />
                 <h3 className="text-xl font-semibold mb-2">{article.title}</h3>
-                <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
                   Read on Medium
                 </a>
               </div>
