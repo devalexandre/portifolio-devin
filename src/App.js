@@ -84,61 +84,61 @@ function App() {
     {
       id: '1',
       title: 'Building a ChatGPT Replica with Fyne in Go',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*m2og9GnHIQ_PvQRDbUzuYA.jpeg',
+      thumbnail: '/images/chatgpt-replica-1.png',
       url: 'https://devevangelista.medium.com/building-a-chatgpt-replica-with-fyne-in-go-5d35fea1c4aa'
     },
     {
       id: '2',
       title: 'Using Encore with Ksql and Cockroachdb',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*7Z3qLZKH5U5k-YexKXyCzA.png',
+      thumbnail: '/images/encore-ksql-cockroachdb-1.png',
       url: 'https://devevangelista.medium.com/using-encore-with-ksql-and-cockroachdb-3db35743c0b6'
     },
     {
       id: '3',
       title: 'NLP with Golang and Cybertron',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
+      thumbnail: '/images/nlp-golang-cybertron-1.png',
       url: 'https://devevangelista.medium.com/nlp-with-golang-and-cybertron-5dd9560b84db'
     },
     {
       id: '4',
       title: 'Using Gorilla/http for request',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*QKbvGw8TT9rQWDtBXp1T3A.png',
+      thumbnail: '/images/gorilla-http-request-1.png',
       url: 'https://devevangelista.medium.com/using-gorilla-http-for-request-e590c5dc7083'
     },
     {
       id: '5',
       title: 'Exploring the Universe of LangchainGo with Hugging Face',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
+      thumbnail: '/images/langchaingo-huggingface-1.png',
       url: 'https://devevangelista.medium.com/exploring-the-universe-of-langchaingo-with-hugging-face-a-go-adventure-448ad7bdff84'
     },
     {
       id: '6',
       title: 'Introducing the Spectacular New Feature of Pipe Library v0.0.2-beta',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*7Z3qLZKH5U5k-YexKXyCzA.png',
+      thumbnail: '/images/pipe-library-feature-1.png',
       url: 'https://devevangelista.medium.com/introducing-the-spectacular-new-feature-of-pipe-library-v0-0-2-beta-multiple-return-values-8be79e292f3f'
     },
     {
       id: '7',
       title: 'Functional Programming in Go: An Adventure with gofn and pipe',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*QKbvGw8TT9rQWDtBXp1T3A.png',
+      thumbnail: '/images/functional-go-gofn-pipe-1.png',
       url: 'https://devevangelista.medium.com/functional-programming-in-go-an-adventure-with-gofn-and-pipe-de42b3a76449'
     },
     {
       id: '8',
       title: 'Conjuring Code: Unleash the Magic of Google Gemma with LangChainGo',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*Yl7SYLlxJjjUBtOXTHsW0Q.png',
+      thumbnail: '/images/google-gemma-langchaingo-1.png',
       url: 'https://devevangelista.medium.com/conjuring-code-unleash-the-magic-of-google-gemma-with-langchaingo-3b3a042ef2f7'
     },
     {
       id: '9',
       title: 'Introducing Pipe: Unix-like Pipelines for Go',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*7Z3qLZKH5U5k-YexKXyCzA.png',
+      thumbnail: '/images/pipe-unix-pipelines-go-1.png',
       url: 'https://devevangelista.medium.com/introducing-pipe-unix-like-pipelines-for-go-8108b2fa68f2'
     },
     {
       id: '10',
       title: 'How the Circuit Breaker Pattern Can Save Your App from Catastrophic Failures',
-      thumbnail: 'https://cdn-images-1.medium.com/max/1024/1*QKbvGw8TT9rQWDtBXp1T3A.png',
+      thumbnail: '/images/circuit-breaker-pattern-1.png',
       url: 'https://devevangelista.medium.com/how-the-circuit-breaker-pattern-can-save-your-app-from-catastrophic-failures-️-7a305d2dc79f'
     }
   ];
@@ -146,12 +146,12 @@ function App() {
   return (
     <div className="min-h-screen bg-dracula-background">
       <header className="bg-dracula-current text-dracula-foreground p-8 relative overflow-hidden transition-all duration-500 ease-in-out hover:bg-dracula-selection">
-        <div className="absolute inset-0 opacity-30 transition-opacity duration-300 ease-in-out hover:opacity-40">
-          <img src={bannerImage} alt="Banner" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 opacity-50 transition-opacity duration-300 ease-in-out hover:opacity-60">
+          <img src={bannerImage} alt="Banner" className="w-full h-full object-cover object-center" style={{ minHeight: '300px' }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold transition-transform duration-300 ease-in-out hover:scale-105">Alexandre Ferreira</h1>
-          <p className="text-2xl mt-2 transition-all duration-300 ease-in-out hover:text-dracula-cyan">Full Stack Developer | Microservices Specialist</p>
+          <h1 className="text-4xl font-bold transition-transform duration-300 ease-in-out hover:scale-105 text-shadow">Alexandre Ferreira</h1>
+          <p className="text-2xl mt-2 transition-all duration-300 ease-in-out hover:text-dracula-cyan text-shadow">Full Stack Developer | Microservices Specialist</p>
         </div>
       </header>
 
@@ -216,22 +216,27 @@ function App() {
           </div>
         </section>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-dracula-pink">Medium Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6 text-dracula-pink">Medium Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mediumArticles.map((article) => (
-              <div key={article.id} className="bg-dracula-current p-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+              <div key={article.id} className="bg-dracula-current p-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
                 <img
                   src={article.thumbnail}
                   alt={article.title}
-                  className="w-full h-40 object-cover mb-2 rounded"
+                  className="w-full h-48 object-cover mb-4 rounded"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = 'https://via.placeholder.com/400x225?text=Image+Not+Available';
                   }}
                 />
-                <h3 className="text-xl font-semibold mb-2 text-dracula-green">{article.title}</h3>
-                <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-dracula-purple hover:text-dracula-cyan transition duration-300 ease-in-out">
+                <h3 className="text-xl font-semibold mb-3 text-dracula-yellow">{article.title}</h3>
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 px-4 py-2 bg-dracula-purple text-dracula-background rounded hover:bg-dracula-cyan transition duration-300 ease-in-out"
+                >
                   Read on Medium
                 </a>
               </div>
